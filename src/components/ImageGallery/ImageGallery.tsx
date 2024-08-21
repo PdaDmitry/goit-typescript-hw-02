@@ -1,7 +1,11 @@
+
 import ImageCard from '../ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
+import {ImageGalleryProps } from './ImageGallery.types';
 
-export default function itemGallery({ items, handleClick }) {
+
+
+export default function ImageGallery({ items, handleClick }:ImageGalleryProps) {
   return (
     <ul className={css.contGallery}>
       {items.map(item => (

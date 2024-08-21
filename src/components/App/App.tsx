@@ -10,7 +10,10 @@ import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
 
+import { Image } from '../ImageGallery/ImageGallery.types';
+
 import Modal from 'react-modal';
+
 // import css from './App.module.css';
 
 //styles for modal window
@@ -31,15 +34,17 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 
-export default function App() {
-  const [query, setQuery] = useState(''); //input element value state
-  const [page, setPage] = useState(1);
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [maxPages, setMaxPages] = useState(1);
 
-  const [modalIsOpen, setModalIsOpen] = useState(false); //initial state of the modal window
+
+export default function App() {
+  const [query, setQuery] = useState<string>(''); //input element value state
+  const [page, setPage] = useState<number>(1);
+  const [images, setImages] = useState<Image[]>([]);////////////////////////////
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [maxPages, setMaxPages] = useState < number >(1);
+
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false); //initial state of the modal window
   const [selectedImage, setSelectedImage] = useState(null); //initial state of the selected element for the modal window
 
   const openModal = image => {
