@@ -1,11 +1,11 @@
-
+import React,{FC} from 'react';
 import ImageCard from '../ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
 import {ImageGalleryProps } from './ImageGallery.types';
 
 
 
-export default function ImageGallery({ items, handleClick }:ImageGalleryProps) {
+ const ImageGallery: FC<ImageGalleryProps> = ({ items, handleClick })=> {
   return (
     <ul className={css.contGallery}>
       {items.map(item => (
@@ -16,5 +16,7 @@ export default function ImageGallery({ items, handleClick }:ImageGalleryProps) {
     </ul>
   );
 }
+
+export default ImageGallery;
 
 // call the function () => handleClick(item) with the element. "item" by clicking on the element to open the mod. window

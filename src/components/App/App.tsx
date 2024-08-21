@@ -39,15 +39,15 @@ Modal.setAppElement('#root');
 export default function App() {
   const [query, setQuery] = useState<string>(''); //input element value state
   const [page, setPage] = useState<number>(1);
-  const [images, setImages] = useState<Image[]>([]);////////////////////////////
+  const [images, setImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [maxPages, setMaxPages] = useState < number >(1);
 
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false); //initial state of the modal window
-  const [selectedImage, setSelectedImage] = useState(null); //initial state of the selected element for the modal window
+  const [selectedImage, setSelectedImage] = useState<Image|null>(null); //initial state of the selected element for the modal window
 
-  const openModal = image => {
+  const openModal = (image:Image) => {
     setSelectedImage(image); //the selected element is saved in the state for the modal window
     setModalIsOpen(true);
   };
