@@ -34,20 +34,18 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 
-
-
 export default function App() {
   const [query, setQuery] = useState<string>(''); //input element value state
   const [page, setPage] = useState<number>(1);
   const [images, setImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [maxPages, setMaxPages] = useState < number >(1);
+  const [maxPages, setMaxPages] = useState<number>(1);
 
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false); //initial state of the modal window
-  const [selectedImage, setSelectedImage] = useState<Image|null>(null); //initial state of the selected element for the modal window
+  const [selectedImage, setSelectedImage] = useState<Image | null>(null); //initial state of the selected element for the modal window
 
-  const openModal = (image:Image) => {
+  const openModal = (image: Image) => {
     setSelectedImage(image); //the selected element is saved in the state for the modal window
     setModalIsOpen(true);
   };
@@ -57,7 +55,7 @@ export default function App() {
     setModalIsOpen(false);
   };
 
-  const searchImages = async (newQuery:string) => {
+  const searchImages = async (newQuery: string) => {
     setQuery(`${nanoid()}/${newQuery}`);
     setPage(1);
     setImages([]);
@@ -76,7 +74,7 @@ export default function App() {
         setError(false);
         setLoading(true);
 
-        const { results,  total, per_page } = await fetchPhotos(query.split('/')[1], page);
+        const { results, total, per_page } = await fetchPhotos(query.split('/')[1], page);
         const maxPages = Math.ceil(total / per_page);
         setImages(prevImages => {
           return [...prevImages, ...results];
