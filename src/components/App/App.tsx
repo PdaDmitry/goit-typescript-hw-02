@@ -57,7 +57,7 @@ export default function App() {
     setModalIsOpen(false);
   };
 
-  const searchImages = async newQuery => {
+  const searchImages = async (newQuery:string) => {
     setQuery(`${nanoid()}/${newQuery}`);
     setPage(1);
     setImages([]);

@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import Modal from 'react-modal';
 import { Image } from '../ImageGallery/ImageGallery.types';
 
+
 interface ImageModalProps {
   item: Image;
   alt_description: string;
