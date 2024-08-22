@@ -76,8 +76,8 @@ export default function App() {
         setError(false);
         setLoading(true);
 
-        const { results, maxPages } = await fetchPhotos(query.split('/')[1], page);
-
+        const { results,  total, per_page } = await fetchPhotos(query.split('/')[1], page);
+        const maxPages = Math.ceil(total / per_page);
         setImages(prevImages => {
           return [...prevImages, ...results];
         });

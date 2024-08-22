@@ -1,7 +1,8 @@
 import { RotatingLines } from 'react-loader-spinner';
 import css from './Loader.module.css';
+import React from 'react';
 
-export default function Loader() {
+const Loader: React.FC = () => {
   return (
     <div className={css.loaderCont}>
       <RotatingLines
@@ -18,4 +19,6 @@ export default function Loader() {
       <p className={css.loaderText}> Loading photos, please wait...</p>
     </div>
   );
-}
+};
+
+export default Loader;
